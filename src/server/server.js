@@ -30,7 +30,11 @@ const server = app.listen(port, () => {
   console.log(`Running on port: ${port}`);
 });
 
-// GET route
+// GET routes
+app.get('/', function (req, res) {
+  res.sendFile('dist/index.html');
+});
+
 app.get('/allData', function (req, res) {
   res.send(projectData);
 });

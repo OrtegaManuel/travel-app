@@ -74,3 +74,8 @@ const updateUI = async (url = '') => {
     console.log('error', error);
   }
 };
+
+export { getWeatherData };
+export { getWeatherURL };
+export { postData };
+export { updateUI };
