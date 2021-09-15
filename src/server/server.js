@@ -19,7 +19,7 @@ app.use(express.json());
 const cors = require('cors');
 app.use(cors());
 // Initialize the main project folder
-app.use(express.static('views'));
+app.use(express.static('dist'));
 
 // Define port
 
@@ -30,7 +30,11 @@ const server = app.listen(port, () => {
   console.log(`Running on port: ${port}`);
 });
 
-// GET route
+// GET routes
+app.get('/', function (req, res) {
+  res.sendFile('dist/index.html');
+});
+
 app.get('/allData', function (req, res) {
   res.send(projectData);
 });
