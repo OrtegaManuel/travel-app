@@ -19,7 +19,7 @@ app.use(express.json());
 const cors = require('cors');
 app.use(cors());
 // Initialize the main project folder
-app.use(express.static('views'));
+app.use(express.static('dist'));
 
 // Define port
 
