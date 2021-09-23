@@ -1,6 +1,9 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
   mode: 'production',
@@ -18,8 +21,15 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader'],
       },
+    ],
+  },
+  optimization: {
+    minimizer: [
+      // For webpack@5 you can use the `...` syntax to extend existing minimizers (i.e. `terser-webpack-plugin`), uncomment the next line
+      `...`,
+      new CssMinimizerPlugin(),
     ],
   },
   plugins: [
@@ -27,5 +37,6 @@ module.exports = {
       template: './src/client/views/index.html',
       filename: './index.html',
     }),
+    new MiniCssExtractPlugin({ filename: '[name].css' }),
   ],
 };
