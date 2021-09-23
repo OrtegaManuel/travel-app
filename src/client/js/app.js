@@ -8,10 +8,11 @@ let d = new Date();
 let newDate = d.getDate() + '.' + (d.getMonth() + 1) + '.' + d.getFullYear();
 
 // Event listener to add function to existing HTML DOM element
-document.getElementById('generate').addEventListener('click', getWeatherData);
+// document.getElementById('generate').addEventListener('click', getWeatherData);
 
 /* Function called by event listener */
 function getWeatherData(e) {
+  console.log('HELLOOOO!!!!!');
   const zip = document.getElementById('zip').value;
   const feelings = document.getElementById('feelings').value;
 
