@@ -13,26 +13,26 @@
   </head>
   <body>
     <div id="app">
-      <div class="holder headline"> Weather Journal App </div>
+      <div class="holder headline"> Travel App </div>
       <div class="holder zip">
-        <label for="zip">Enter Zipcode here</label>
-        <input type="text" id="zip" placeholder="enter zip code here" />
+        <label for="city">Enter city here</label>
+        <input type="text" id="city" placeholder="enter city here" />
       </div>
       <div class="holder feel">
-        <label for="feelings">How are you feeling today?</label>
+        <label for="date">Enter date</label>
         <textarea
           class="myInput"
           id="feelings"
-          placeholder="Enter your feelings here"
+          placeholder="yyyy.mm.dd"
         ></textarea>
         <button id="generate" type="submit"> Generate </button>
       </div>
       <div class="holder entry">
-        <div class="title">Most Recent Entry</div>
+        <div class="title">Result:</div>
         <div id="entryHolder">
-          <div id="date"></div>
-          <div id="temp"></div>
-          <div id="content"></div>
+          <div id="cityResult"></div>
+          <div id="coords"></div>
+          <div id="country"></div>
         </div>
       </div>
     </div>
