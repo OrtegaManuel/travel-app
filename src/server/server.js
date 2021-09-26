@@ -3,6 +3,8 @@ let projectData = {};
 
 const path = require('path');
 const fetch = require('node-fetch');
+const dotenv = require('dotenv');
+dotenv.config();
 
 // Require Express to run server and routes
 const express = require('express');
@@ -61,9 +63,9 @@ app.post('/api', async function (req, res) {
 });
 
 // GET data from GeoNames
-const user = 'OrtegaManuel';
+const geoNamesKey = process.env.GEONAMES_API_KEY;
 async function getApiURL(city) {
-  const apiURL = `http://api.geonames.org/search?q=${city}&maxRows=1&type=json&username=${user}`;
+  const apiURL = `http://api.geonames.org/search?q=${city}&maxRows=1&type=json&username=${geoNamesKey}`;
   try {
     const res = await fetch(apiURL);
     const data = await res.json();
@@ -78,5 +80,3 @@ async function getApiURL(city) {
     console.log('Error: ', err);
   }
 }
-
-getApiURL();
