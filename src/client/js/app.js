@@ -1,8 +1,8 @@
 function getCountryData(event) {
   event.preventDefault();
 
-  // check what url was put into the form field
   let cityInput = document.getElementById('city').value;
+  let dateInput = document.getElementById('date').value;
 
   if (!cityInput) {
     alert('Please enter a city');
@@ -18,7 +18,7 @@ function getCountryData(event) {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
       },
-      body: JSON.stringify({ city: cityInput }),
+      body: JSON.stringify({ city: cityInput, date: dateInput }), // sending to server.js
     })
       .then((res) => res.json())
       .then(function (res) {
@@ -27,10 +27,16 @@ function getCountryData(event) {
         ).innerHTML = `Your destination is ${cityInput}`;
         document.getElementById(
           'coords'
-        ).innerHTML = `The coordinates for ${cityInput} are: ${res.lat},${res.lng}`;
+        ).innerHTML = `The coordinates for ${cityInput} are: ${res.city.lat},${res.city.lng}`;
         document.getElementById(
           'country'
-        ).innerHTML = `The city of ${cityInput} belongs to: ${res.country}`;
+        ).innerHTML = `The city of ${cityInput} belongs to: ${res.city.country}`;
+        document.getElementById(
+          'temp'
+        ).innerHTML = `The temperature is: ${res.weather.temp}`;
+        document.getElementById(
+          'cityImage'
+        ).innerHTML = `<img src="${res.cityImage.webformatURL}"/>`;
       });
   }
 }

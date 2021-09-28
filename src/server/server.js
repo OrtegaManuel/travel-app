@@ -1,6 +1,3 @@
-// Setup empty JS array to act as endpoint for all routes
-let projectData = {};
-
 const path = require('path');
 const fetch = require('node-fetch');
 const dotenv = require('dotenv');
@@ -40,31 +37,31 @@ app.get('/', function (req, res) {
   res.sendFile('dist/index.html');
 });
 
-// app.get('/allData', function (req, res) {
-//   res.send(projectData);
-// });
-
-// // POST route
-// app.post('/addData', function (req, res) {
-//   let newEntry = {
-//     temperature: req.body.temperature,
-//     date: req.body.date,
-//     userFeeling: req.body.userFeeling,
-//   };
-//   // adding data to the array 'projectData'
-//   projectData = newEntry;
-// });
-
+// POST routes
 app.post('/api', async function (req, res) {
   const city = req.body.city;
+  const date = req.body.date;
+  console.log('city', city);
 
-  const data = await getApiURL(city);
-  res.json(data);
+  const cityData = await getCityData(city);
+  console.log('cityData', cityData);
+
+  const weatherData = await getCurrentWeatherData(cityData.lat, cityData.lng);
+  console.log('weatherData', weatherData);
+
+  const cityImage = await getCityImage(city);
+
+  res.json({
+    city: cityData,
+    weather: weatherData,
+    cityImage: cityImage,
+  });
 });
 
-// GET data from GeoNames
+// Get data from GeoNames
 const geoNamesKey = process.env.GEONAMES_API_KEY;
-async function getApiURL(city) {
+
+async function getCityData(city) {
   const apiURL = `http://api.geonames.org/search?q=${city}&maxRows=1&type=json&username=${geoNamesKey}`;
   try {
     const res = await fetch(apiURL);
@@ -75,6 +72,46 @@ async function getApiURL(city) {
       lng: data.geonames[0].lng,
       lat: data.geonames[0].lat,
       country: data.geonames[0].countryName,
+    };
+  } catch (err) {
+    console.log('Error: ', err);
+  }
+}
+
+// Get data from Weatherbit
+
+const weatherbitKey = process.env.WEATHER_API_KEY;
+
+async function getCurrentWeatherData(lat, lon, date) {
+  const apiURL = `https://api.weatherbit.io/v2.0/forecast/daily/?lat=${lat}&lon=${lon}&key=${weatherbitKey}`;
+  try {
+    const res = await fetch(apiURL);
+    const data = await res.json();
+    // console.log(data);
+    console.log(apiURL);
+
+    return {
+      temp: data.data[0].temp,
+    };
+  } catch (err) {
+    console.log('Error: ', err);
+  }
+}
+
+// Get data from Pixabay
+
+const pixabayKey = process.env.PIXABAY_API_KEY;
+
+async function getCityImage(city) {
+  const apiURL = `https://pixabay.com/api/?key=${pixabayKey}&q=${city}&image_type=photo&pretty=true`;
+  try {
+    const res = await fetch(apiURL);
+    const data = await res.json();
+    // console.log(data);
+    console.log(apiURL);
+
+    return {
+      webformatURL: data.hits[0].webformatURL,
     };
   } catch (err) {
     console.log('Error: ', err);
