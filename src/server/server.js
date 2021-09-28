@@ -49,7 +49,7 @@ app.post('/api', async function (req, res) {
   const weatherData = await getCurrentWeatherData(cityData.lat, cityData.lng);
   console.log('weatherData', weatherData);
 
-  const cityImage = await getCityImage(city);
+  const cityImage = await getCityImage(city, weatherData.weatherDescription);
 
   res.json({
     city: cityData,
@@ -92,6 +92,7 @@ async function getCurrentWeatherData(lat, lon, date) {
 
     return {
       temp: data.data[0].temp,
+      weatherDescription: data.data[0].weather.description,
     };
   } catch (err) {
     console.log('Error: ', err);
@@ -102,8 +103,10 @@ async function getCurrentWeatherData(lat, lon, date) {
 
 const pixabayKey = process.env.PIXABAY_API_KEY;
 
-async function getCityImage(city) {
-  const apiURL = `https://pixabay.com/api/?key=${pixabayKey}&q=${city}&image_type=photo&pretty=true`;
+async function getCityImage(city, weather) {
+  const apiURL = `https://pixabay.com/api/?key=${pixabayKey}&q=${city}+${weather
+    .split(' ')
+    .pop()}&image_type=photo&pretty=true`;
   try {
     const res = await fetch(apiURL);
     const data = await res.json();
