@@ -36,7 +36,7 @@ function getCountryData(event) {
         ).innerHTML = `The temperature is: ${res.weather.temp}`;
         document.getElementById(
           'cityImage'
-        ).innerHTML = `<img src="${res.cityImage.webformatURL}"/>`;
+        ).innerHTML = `<img src="${res.cityImage.webformatURL}"class='result_img'/>`;
       });
   }
 }
