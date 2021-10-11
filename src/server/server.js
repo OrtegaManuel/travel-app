@@ -83,7 +83,7 @@ async function getCityData(city) {
 const weatherbitKey = process.env.WEATHER_API_KEY;
 
 async function getCurrentWeatherData(lat, lon, date) {
-  const apiURL = `https://api.weatherbit.io/v2.0/forecast/daily/?lat=${lat}&lon=${lon}&key=${weatherbitKey}`;
+  const apiURL = `https://api.weatherbit.io/v2.0/current/?lat=${lat}&lon=${lon}&key=${weatherbitKey}`;
   try {
     const res = await fetch(apiURL);
     const data = await res.json();

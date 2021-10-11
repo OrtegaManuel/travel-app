@@ -14,23 +14,10 @@
     <title>Travel App</title>
   </head>
   <body>
-    <!-- <div class="holder zip">
-        <label for="city">Enter city here</label>
-        <input type="text" id="city" placeholder="enter city here" />
-      </div>
-      <div class="holder feel">
-        <label for="date">Enter date</label>
-        <input type="date"
-          class="myInput"
-          id="date"
-          placeholder="yyyy.mm.dd"
-        ></input>
-        <button id="generate" type="submit"> Generate </button>
-      </div> -->
     <main>
-      <h1 class="holder headline"> Travel App </h1>
+      <h1 class="headline noprint"> Travel App </h1>
 
-      <section class="travel-input">
+      <section class="travel-input noprint">
         <form class="form-input">
           <div class="form-city">
             <label class="labelText" for="city">Enter city here</label>
@@ -53,13 +40,26 @@
             />
           </div>
           <div class="form-submit">
-            <input class="submit" id="generate" type="submit" value="Submit!" />
+            <input
+              class="submit--btn"
+              id="generate"
+              type="submit"
+              value="Submit!"
+            />
           </div>
+          <div
+            ><input
+              class="print--btn"
+              type="button"
+              name="print"
+              value="Print Result"
+              onClick="window.print()"
+          /></div>
         </form>
       </section>
 
       <section class="travel-result">
-        <h2 class="headline">Result:</h2>
+        <h2 class="headline noprint">Result:</h2>
 
         <div class="result_container">
           <div id="cityImage"></div>
