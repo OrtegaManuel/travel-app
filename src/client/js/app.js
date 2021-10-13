@@ -24,7 +24,10 @@ function getCountryData(event) {
       .then(function (res) {
         document.getElementById(
           'cityResult'
-        ).innerHTML = `Your trip to ${cityInput} starts on ${dateInput}`;
+        ).innerHTML = `Your trip to ${cityInput} starts on ${dateInput
+          .split('-')
+          .reverse()
+          .join('.')}`;
         document.getElementById(
           'coords'
         ).innerHTML = `The coordinates for ${cityInput} are: ${res.city.lat},${res.city.lng}`;
