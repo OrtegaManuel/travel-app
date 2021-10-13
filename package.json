@@ -4,7 +4,7 @@
   "description": "package.json for the travel app project",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "nodemon src/server/server.js",
     "build-prod": "webpack --config webpack.prod.js",
     "build-dev": "webpack-dev-server  --config webpack.dev.js --open"
@@ -29,6 +29,7 @@
     "css-loader": "^6.3.0",
     "css-minimizer-webpack-plugin": "^3.0.2",
     "html-webpack-plugin": "^5.3.2",
+    "jest": "^27.2.5",
     "mini-css-extract-plugin": "^2.3.0",
     "node-sass": "^6.0.1",
     "sass-loader": "^12.1.0",
