@@ -15,7 +15,7 @@
   </head>
   <body>
     <main>
-      <h1 class="headline noprint"> Travel App </h1>
+      <h1 class="headline noprint">Travel App</h1>
 
       <section class="travel-input noprint">
         <form class="form-input">
@@ -47,26 +47,18 @@
               value="Submit!"
             />
           </div>
-          <div
-            ><input
-              class="print--btn"
-              type="button"
-              name="print"
-              value="Print Result"
-              onClick="window.print()"
-          /></div>
         </form>
       </section>
 
       <section class="travel-result">
-        <h2 class="headline noprint">Result:</h2>
-
         <div class="result_container">
+          <h2 class="headline">Your travel details:</h2>
           <div id="cityImage"></div>
-          <div class="result_text" id="cityResult"></div>
-          <div class="result_text" id="coords"></div>
-          <div class="result_text" id="country"></div>
-          <div class="result_text" id="temp"></div>
+          <div class="result_content" id="cityResult"></div>
+          <div class="result_content" id="coords"></div>
+          <div class="result_content" id="country"></div>
+          <div class="result_content" id="temp"></div>
+          <div class="result_content" id="print--btn"></div>
         </div>
       </section>
     </main>

@@ -52,7 +52,7 @@ h1 {
 
 .result_container {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-  width: 90%;
+  width: 50vw;
   border-radius: 5%;
   margin-bottom: 10vh;
 }
@@ -74,10 +74,9 @@ h1 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 5% 5% 0 0;
 }
 
-.result_text {
+.result_content {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -90,11 +89,26 @@ h1 {
     background-color: #ffb300;
     -webkit-print-color-adjust: exact !important;
     height: 100%;
+    width: 100%;
     overflow: hidden;
+    margin: 0;
+    padding: 0;
   }
 
   .result_container {
+    height: 100vh;
+    width: 100vw;
     background-color: #ffb300;
+  }
+
+  .result_content {
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 1.5;
+  }
+
+  #cityResult {
+    margin-top: 5vh;
   }
 
   .noprint {

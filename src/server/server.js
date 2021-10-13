@@ -40,7 +40,6 @@ app.get('/', function (req, res) {
 // POST routes
 app.post('/api', async function (req, res) {
   const city = req.body.city;
-  const date = req.body.date;
   console.log('city', city);
 
   const cityData = await getCityData(city);
@@ -82,7 +81,7 @@ async function getCityData(city) {
 
 const weatherbitKey = process.env.WEATHER_API_KEY;
 
-async function getCurrentWeatherData(lat, lon, date) {
+async function getCurrentWeatherData(lat, lon) {
   const apiURL = `https://api.weatherbit.io/v2.0/current/?lat=${lat}&lon=${lon}&key=${weatherbitKey}`;
   try {
     const res = await fetch(apiURL);
