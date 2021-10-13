@@ -20,26 +20,23 @@ function getCountryData(event) {
       },
       body: JSON.stringify({ city: cityInput, date: dateInput }), // sending values to server.js
     })
-      .then(res => res.json())
+      .then((res) => res.json())
       .then(function (res) {
         document.getElementById(
-          'cityResult'
-        ).innerHTML = `Your trip to ${cityInput} starts on ${dateInput
+          'travel--date'
+        ).innerHTML = `Travel begin: ${dateInput
           .split('-')
           .reverse()
           .join('.')}`;
         document.getElementById(
-          'coords'
-        ).innerHTML = `The coordinates for ${cityInput} are: ${res.city.lat},${res.city.lng}`;
+          'city--result'
+        ).innerHTML = `Destination: ${cityInput} in ${res.city.country}`;
         document.getElementById(
-          'country'
-        ).innerHTML = `The city of ${cityInput} belongs to: ${res.city.country}`;
+          'forecast'
+        ).innerHTML = `Weather: ${res.weather.weatherDescription} - ${res.weather.temp}°C`;
         document.getElementById(
-          'temp'
-        ).innerHTML = `The forecast is: ${res.weather.temp}°C - ${res.weather.weatherDescription}`;
-        document.getElementById(
-          'cityImage'
-        ).innerHTML = `<img src="${res.cityImage.webformatURL}"class='result_img'/>`;
+          'city--image'
+        ).innerHTML = `<img src="${res.cityImage.webformatURL}"class='result--img'/>`;
         document.getElementById('print--btn').innerHTML = `<input
         class="print--btn"
         type="button"

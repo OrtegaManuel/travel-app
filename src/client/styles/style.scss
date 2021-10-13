@@ -10,57 +10,70 @@ body {
 }
 
 h1 {
+  font-size: 2.5rem;
   margin-top: 10vh;
 }
 
-.form-input {
+h2 {
+  font-size: 1rem;
+}
+
+.form--input {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.travel-input {
+.travel--input {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.travel-result {
+.travel--result {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.userInput {
+.user--input {
   margin: 1em;
   border-radius: 2em;
   text-align: center;
 }
 
-.form-city {
+.form--city {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.form-date {
+.form--date {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.result_container {
+.result--container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
   width: 50vw;
   border-radius: 5%;
   margin-bottom: 10vh;
 }
 
-#cityImage {
-  width: auto;
-  margin-bottom: 10px;
+#city--image {
+  width: 80%;
+  margin: 0 0 10px 0;
   object-fit: cover;
+}
+
+#forecast {
+  margin-bottom: 10px;
 }
 
 .submit--btn,
@@ -70,24 +83,38 @@ h1 {
   margin-bottom: 0.5em;
 }
 
-.result_img {
+.submit--btn:hover {
+  background-color: green;
+  color: aliceblue;
+}
+.print--btn:hover {
+  background-color: green;
+  color: aliceblue;
+}
+
+.result--img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  border-radius: 5%;
 }
 
-.result_content {
+.result--content {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: auto;
-  margin: 0.5em;
+  margin: 0.2em;
+  font-size: 0.8rem;
 }
+
+// Styles for print feature
 
 @media print {
   body {
     background-color: #ffb300;
-    -webkit-print-color-adjust: exact !important;
+    -webkit-print-color-adjust: exact;
     height: 100%;
     width: 100%;
     overflow: hidden;
@@ -95,23 +122,60 @@ h1 {
     padding: 0;
   }
 
-  .result_container {
+  .result--container {
     height: 100vh;
     width: 100vw;
     background-color: #ffb300;
   }
 
-  .result_content {
+  .result--content {
     font-weight: bold;
     font-size: 24px;
     line-height: 1.5;
   }
 
-  #cityResult {
-    margin-top: 5vh;
+  h2 {
+    margin-bottom: 10px;
+    font-size: 2.2rem;
+    text-align: center;
   }
 
   .noprint {
     display: none;
+  }
+}
+
+// Tablet
+@media screen and (min-width: 576px) {
+  .result--content {
+    margin: 0.2em;
+    font-size: 0.9rem;
+  }
+
+  h1 {
+    font-size: 3.3rem;
+    margin-top: 10vh;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+}
+
+// Desktop
+
+@media screen and (min-width: 1200px) {
+  .result--content {
+    margin: 0.2em;
+    font-size: 1.1rem;
+  }
+
+  h1 {
+    font-size: 3.5rem;
+    margin-top: 10vh;
+  }
+
+  h2 {
+    font-size: 2.2rem;
   }
 }

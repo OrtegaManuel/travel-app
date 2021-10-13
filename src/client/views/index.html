@@ -17,48 +17,47 @@
     <main>
       <h1 class="headline noprint">Travel App</h1>
 
-      <section class="travel-input noprint">
-        <form class="form-input">
-          <div class="form-city">
-            <label class="labelText" for="city">Enter city here</label>
+      <section class="travel--input noprint">
+        <form class="form--input">
+          <div class="form--city">
+            <label class="label--text" for="city">Enter city here</label>
             <input
               type="text"
-              class="userInput"
+              class="user--input"
               id="city"
               placeholder="enter city here"
               required
             />
           </div>
-          <div class="form-date">
-            <label class="labelText" for="date">Enter date</label>
+          <div class="form--date">
+            <label class="label--text" for="date">Enter date</label>
             <input
               type="date"
-              class="userInput"
+              class="user--input"
               id="date"
               placeholder="yyyy.mm.dd"
               required
             />
           </div>
-          <div class="form-submit">
+          <div class="form--submit">
             <input
               class="submit--btn"
               id="generate"
               type="submit"
-              value="Submit!"
+              value="Get Travel Details"
             />
           </div>
         </form>
       </section>
 
-      <section class="travel-result">
-        <div class="result_container">
-          <h2 class="headline">Your travel details:</h2>
-          <div id="cityImage"></div>
-          <div class="result_content" id="cityResult"></div>
-          <div class="result_content" id="coords"></div>
-          <div class="result_content" id="country"></div>
-          <div class="result_content" id="temp"></div>
-          <div class="result_content" id="print--btn"></div>
+      <section class="travel--result">
+        <div class="result--container">
+          <h2 class="headline">Your travel details</h2>
+          <div id="city--image"></div>
+          <div class="result--content" id="travel--date"></div>
+          <div class="result--content" id="city--result"></div>
+          <div class="result--content" id="forecast"></div>
+          <div class="result--content" id="print--btn"></div>
         </div>
       </section>
     </main>
