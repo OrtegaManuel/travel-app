@@ -40,13 +40,13 @@ app.get('/', function (req, res) {
 // POST routes
 app.post('/api', async function (req, res) {
   const city = req.body.city;
-  console.log('city', city);
+  // console.log('city', city);
 
   const cityData = await getCityData(city);
-  console.log('cityData', cityData);
+  // console.log('cityData', cityData);
 
   const weatherData = await getCurrentWeatherData(cityData.lat, cityData.lng);
-  console.log('weatherData', weatherData);
+  // console.log('weatherData', weatherData);
 
   const cityImage = await getCityImage(city, weatherData.weatherDescription);
 
@@ -57,7 +57,7 @@ app.post('/api', async function (req, res) {
   });
 });
 
-// Get data from GeoNames
+// Getting data from GeoNames
 const geoNamesKey = process.env.GEONAMES_API_KEY;
 
 async function getCityData(city) {
@@ -77,7 +77,7 @@ async function getCityData(city) {
   }
 }
 
-// Get data from Weatherbit
+// Getting data from Weatherbit
 
 const weatherbitKey = process.env.WEATHER_API_KEY;
 
@@ -98,7 +98,7 @@ async function getCurrentWeatherData(lat, lon) {
   }
 }
 
-// Get data from Pixabay
+// Getting data from Pixabay
 
 const pixabayKey = process.env.PIXABAY_API_KEY;
 
