@@ -20,20 +20,20 @@ function getCountryData(event) {
       },
       body: JSON.stringify({ city: cityInput, date: dateInput }), // sending values to server.js
     })
-      .then((res) => res.json())
+      .then(res => res.json())
       .then(function (res) {
         document.getElementById(
           'travel--date'
-        ).innerHTML = `Travel begin: ${dateInput
+        ).innerHTML = `Travel begin:<br>${dateInput
           .split('-')
           .reverse()
           .join('.')}`;
         document.getElementById(
           'city--result'
-        ).innerHTML = `Destination: ${cityInput} in ${res.city.country}`;
+        ).innerHTML = `Destination:<br>${cityInput} in ${res.city.country}`;
         document.getElementById(
           'forecast'
-        ).innerHTML = `Weather: ${res.weather.weatherDescription} - ${res.weather.temp}°C`;
+        ).innerHTML = `Weather:<br>${res.weather.weatherDescription} - ${res.weather.temp}°C`;
         document.getElementById(
           'city--image'
         ).innerHTML = `<img src="${res.cityImage.webformatURL}"class='result--img'/>`;

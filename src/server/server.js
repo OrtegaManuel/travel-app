@@ -103,9 +103,7 @@ async function getCurrentWeatherData(lat, lon) {
 const pixabayKey = process.env.PIXABAY_API_KEY;
 
 async function getCityImage(city, weather) {
-  const apiURL = `https://pixabay.com/api/?key=${pixabayKey}&q=${city}+${weather
-    .split(' ')
-    .pop()}&image_type=photo&pretty=true`;
+  const apiURL = `https://pixabay.com/api/?key=${pixabayKey}&q=${city}&image_type=photo&pretty=true`;
   try {
     const res = await fetch(apiURL);
     const data = await res.json();
