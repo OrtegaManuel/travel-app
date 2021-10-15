@@ -61,7 +61,7 @@ app.post('/api', async function (req, res) {
 const geoNamesKey = process.env.GEONAMES_API_KEY;
 
 async function getCityData(city) {
-  const apiURL = `http://api.geonames.org/search?q=${city}&maxRows=1&type=json&username=${geoNamesKey}`;
+  const apiURL = `http://api.geonames.org/search?q=${city}&maxRows=1&type=json&username=OrtegaManuel`;
   try {
     const res = await fetch(apiURL);
     const data = await res.json();
@@ -82,7 +82,7 @@ async function getCityData(city) {
 const weatherbitKey = process.env.WEATHER_API_KEY;
 
 async function getCurrentWeatherData(lat, lon) {
-  const apiURL = `https://api.weatherbit.io/v2.0/current/?lat=${lat}&lon=${lon}&key=${weatherbitKey}`;
+  const apiURL = `https://api.weatherbit.io/v2.0/current/?lat=${lat}&lon=${lon}&key=8787f3e7e8cb4a6fb030afa694347ba2`;
   try {
     const res = await fetch(apiURL);
     const data = await res.json();
@@ -103,7 +103,7 @@ async function getCurrentWeatherData(lat, lon) {
 const pixabayKey = process.env.PIXABAY_API_KEY;
 
 async function getCityImage(city, weather) {
-  const apiURL = `https://pixabay.com/api/?key=${pixabayKey}&q=${city}&image_type=photo&pretty=true`;
+  const apiURL = `https://pixabay.com/api/?key=23605200-97a5ad33178c579a2b57bfd23&q=${city}&image_type=photo&pretty=true`;
   try {
     const res = await fetch(apiURL);
     const data = await res.json();
