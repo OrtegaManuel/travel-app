@@ -47,4 +47,4 @@ function getCountryData(event) {
       });
   }
 }
-export { getCountryData };
+export { getCountryData }; // exporting function to import to index.js
